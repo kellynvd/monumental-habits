@@ -1,0 +1,26 @@
+services:
+  pg:
+    image: postgres:latest
+    container_name: monumental-pg
+    environment:
+      POSTGRES_DB: monumental_development
+      POSTGRES_USER: monumental
+      POSTGRES_PASSWORD: monumental
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: monumental-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@monumental.com
+      PGADMIN_DEFAULT_PASSWORD: monumental
+    ports:
+      - 8080:80
+    depends_on:
+      - pg
+
+volumes:
+  pg_data:
