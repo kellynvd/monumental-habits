@@ -1,0 +1,9 @@
+<h1>Habit: <%= @habit.name %></h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @habit.name %>
+</p>
+
+<%= link_to 'Edit', edit_habit_path(@habit) %> |
+<%= link_to 'Back', habits_path %>
