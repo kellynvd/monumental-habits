@@ -3,7 +3,7 @@
     <h1>Welcome Home, <%= current_user.email %></h1>
     <%= link_to 'Sign out', destroy_user_session_path, data: { turbo_method: :delete } %>
   <% else %>
-    <h1>Home</h1>
+    <h1 class="text-morning font-klasik capitalize">Welcome</h1>
     <%= link_to 'Sign in', new_user_session_path %>
   <% end %>
 </div>
