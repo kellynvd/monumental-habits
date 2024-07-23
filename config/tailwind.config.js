@@ -1,5 +1,3 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
-
 module.exports = {
   content: [
     './public/*.html',
@@ -19,6 +17,7 @@ module.exports = {
         morning: '#FFBA7C',
         fog: '#FFDEEF',
         eclipse: '#573353',
+        screen: '#FFF3E9',
       },
     },
   },

@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
- @font-face {
+@font-face {
   font-family: 'Klasik';
   src: url('/assets/Klasik.otf') format('opentype');
   font-weight: normal;

@@ -1,29 +1,46 @@
-<h2>Sign up</h2>
+<div class="flex flex-col h-screen bg-screen items-center">
+  <h2 class="font-klasik">Create your account</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="relative mb-4" data-controller="user-icon">
+      <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pr-2 pointer-events-none border-r border-screen">
+        <svg data-user-icon-target="icon" width="14" height="14" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15.2222 17V15.2222C15.2222 14.2793 14.8476 13.3749 14.1808 12.7081C13.514 12.0413 12.6097 11.6667 11.6667 11.6667H4.55556C3.61256 11.6667 2.70819 12.0413 2.0414 12.7081C1.3746 13.3749 1 14.2793 1 15.2222V17" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8.11122 8.11111C10.0749 8.11111 11.6668 6.51923 11.6668 4.55556C11.6668 2.59188 10.0749 1 8.11122 1C6.14754 1 4.55566 2.59188 4.55566 4.55556C4.55566 6.51923 6.14754 8.11111 8.11122 8.11111Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+      </div>
+      <%= f.text_field :name, autofocus: true,
+                class: "outline-offset-0 placeholder:text-eclipse text-sm rounded-md w-full ps-12 p-2.5 focus:outline-none focus:ring-0 border-0",
+                placeholder: "Nome",
+                data: { action: "focus->user-icon#toggleActive blur->user-icon#toggleInactive input->user-icon#checkInput" } %>
+      </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+    <div class="field">
+      <%= f.label :email, class: "text-morning" %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
 
-<%= render "users/shared/links" %>
+    <div class="field">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Sign up" %>
+    </div>
+  <% end %>
+
+  <%= render "users/shared/links" %>
+</div>
