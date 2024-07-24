@@ -18,6 +18,7 @@ module.exports = {
         fog: '#FFDEEF',
         eclipse: '#573353',
         screen: '#FFF3E9',
+        calm: '#FDA759',
       },
     },
   },
