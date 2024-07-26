@@ -10,6 +10,7 @@ module.exports = {
       fontFamily: {
         'manrope': ["Manrope", 'sans-serif'],
         'klasik': ["Klasik", 'sans-serif'],
+        'poppins': ["Poppins", 'sans-serif'],
       },
       colors: {
         sunset: '#F65B4E',
@@ -19,6 +20,9 @@ module.exports = {
         eclipse: '#573353',
         screen: '#FFF3E9',
         calm: '#FDA759',
+      },
+      backgroundImage: {
+        'login': "url('/assets/login.svg')",
       },
     },
   },

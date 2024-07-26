@@ -1,16 +1,39 @@
-<h2>Forgot your password?</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="h-screen bg-screen">
+  <div class="self-start p-8">
+    <%= link_to user_session_path, class: "bg-eclipse bg-opacity-30 text-black bg-border font-medium rounded-full w-10 p-3 text-center inline-flex items-center" do %>
+      <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 8H18.5" stroke="#573353" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M7.25 2L2 8L7.25 14" stroke="#573353" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    <% end %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
 
-<%= render "users/shared/links" %>
+  <div class="mt-8 flex flex-col items-center">
+    <h2 class="mb-4 font-poppins uppercase font-bold text-lg">Esqueceu sua senha?</h2>
+
+    <img id="forgot-password" src="<%= asset_path('forgot-password.svg') %>" alt="Forgot password Image" class="rounded-md mb-4 inset-0 object-center max-w-56">
+
+    <div class="mb-6 bg-white p-8 rounded-lg mx-5">
+    <p class="mb-6 font-eclipse text-sm  text-center"> Digite seu e-mail cadastrado abaixo para receber instruções de redefinição de senha</p>
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+        <%= render "users/shared/error_messages", resource: resource %>
+
+      <div class="relative mb-4" data-controller="user-icon" data-user-icon-target="icon">
+          <%= f.email_field :email, autofocus: true,
+            class: "bg-screen outline-offset-0 placeholder:text-eclipse text-sm rounded-md w-full ps-5 p-2.5 focus:outline-none focus:ring-0 border-0",
+            placeholder: "Email",
+            data: { action: "focus->user-icon#toggleActive blur->user-icon#toggleInactive input->user-icon#checkInput" }
+          %>
+        </div>
+
+
+        <div class="bg-calm rounded-lg text-eclipse text-center p-2 font-semibold mt-6">
+          <%= f.submit "Recuperar senha" %>
+        </div>
+      <% end %>
+    </div>
+
+    <span>Lembrou a senha? <%= link_to "Entrar", new_session_path(resource_name), class: "font-bold" %></span>
+  </div>
+</div>
